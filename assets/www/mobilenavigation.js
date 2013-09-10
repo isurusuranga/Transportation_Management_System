@@ -573,7 +573,4 @@ $("#myTab ul li").live("click", function() {
 	prevSelection = newSelection;
 });
 
-$("input[type=text]").focus(
-		function() { 
-			$(this).trigger('change'); 
-		});
+
