@@ -1,0 +1,50 @@
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0
+}
+
+#map_canvas {
+	height: 100%
+}
+
+#bus-result{
+		background-color:#FFFFFF !important;
+		-webkit-border-radius: 5px !important;
+	    border-radius: 5px !important;	 
+ }
+#result{ 
+	background-color:#fff !important;
+	padding:5px !important;
+	}
+.result_box{
+	background-color:#eee;
+	border:solid 1px silver;
+}
+.result_box a{
+	font-size: 14px;
+	font-weight: bold;
+}
+.suggest_box{
+	background: #fff;
+	border: 1px solid #cdcdcd;
+	cursor: pointer;
+	padding: 4px;
+}
+.active_tr{
+	background-color: #eee;
+}
+.tab-content{
+	width:100%;
+	height:650px;
+	background-color:white;
+	border-bottom-left-radius:0.5em;
+	border-bottom-right-radius:0.5em;
+}
+.tab-content>div{
+	padding:5px;
+}     
