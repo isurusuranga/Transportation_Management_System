@@ -1,10 +1,9 @@
 /**
- * @Auther: Isuru Wijesinghe
- * Email: isurusuranga.wijesinghe@gmail.com
+ * @author Isuru Wijesinghe Email: isurusuranga.wijesinghe@gmail.com
  */
 
 $.mobile.page.prototype.options.domCache = true;
-//To speed up JQM, need to turn off any transitions.
+// To speed up JQM, need to turn off any transitions.
 $.mobile.defaultPageTransition = 'none';
 $.mobile.defaultDialogTransition = 'none';
 $.mobile.buttonMarkup.hoverDelay = 0;
@@ -95,8 +94,8 @@ $(document).live("pagecreate", "#map_page", function() {
 
 var directionDisplay;
 var directionsService = new google.maps.DirectionsService(); // get services
-																// from google
-																// maps
+// from google
+// maps
 var map; // declare a variable to hold the map
 var mapCenter; // set the geoLocation of a default point
 
