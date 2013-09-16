@@ -1,4 +1,13 @@
+/**
+ * @Auther: Isuru Wijesinghe
+ * Email: isurusuranga.wijesinghe@gmail.com
+ */
+
 $.mobile.page.prototype.options.domCache = true;
+//To speed up JQM, need to turn off any transitions.
+$.mobile.defaultPageTransition = 'none';
+$.mobile.defaultDialogTransition = 'none';
+$.mobile.buttonMarkup.hoverDelay = 0;
 
 // Marker images to mark the source, destination and intermediate tracking nodes
 var mGreen = new google.maps.MarkerImage(
@@ -21,9 +30,9 @@ var resultsQ = null;
 
 // image icons
 var pinIcons = null;
-var type = null; //type of the public places
+var type = null; // type of the public places
 
-var iconBase = './images/';
+var iconBase = './image_icons_gps/';
 var icons = {
 	atm : {
 		icon : iconBase + 'atm.png'
@@ -67,30 +76,35 @@ $(document).live("pageshow", "#map_page", function() {
 
 $(document).live("pagecreate", "#map_page", function() {
 	$('#submit').click(function() {
+		// call for calculate the route
 		calculateRoute();
 		$('#directionpath').removeClass('ui-disabled');
 		return false;
 	});
 	$('#home').click(function() {
+		// add directions path to UI
 		$('#directionpath').addClass('ui-disabled');
 		initialize();
 	});
 	$('#button1').click(function() {
+		// call nearest places to find
 		findPlaces();
 		return false;
 	});
 });
 
 var directionDisplay;
-var directionsService = new google.maps.DirectionsService(); //get services from google maps
-var map;	//declare a variable to hold the map 
-var mapCenter; //set the geoLocation of a default point
+var directionsService = new google.maps.DirectionsService(); // get services
+																// from google
+																// maps
+var map; // declare a variable to hold the map
+var mapCenter; // set the geoLocation of a default point
 
 // Initialize the map
 function initialize() {
-
+	// set the default location
 	mapCenter = new google.maps.LatLng(6.927079000000001, 79.861243);
-
+	// options of the rendering map
 	var myOptions = {
 		zoom : 13,
 		mapTypeId : google.maps.MapTypeId.ROADMAP,
@@ -100,8 +114,10 @@ function initialize() {
 
 }
 
+// view directions in the map
 function showDirections(dirResult, dirStatus) {
-
+	// get randomly generated color and render it in to map for the directions
+	// given
 	directionDisplay = new google.maps.DirectionsRenderer({
 		polylineOptions : getColor()
 	});
@@ -127,7 +143,7 @@ function getColor() {
 
 // auto zooming the appropriate area in event handeling feature
 function showonmap(index) {
-
+	// set longitude and latitude
 	var latLngIni = new google.maps.LatLng(6.927079000000001, 79.861243);
 	map = new google.maps.Map(document.getElementById("map_canvas"), {
 		zoom : 13,
@@ -200,7 +216,7 @@ function getRouteDetails(route) {
 	$('#route_details').html('Please be waiting until information loading...');
 	// $('#myTab a:last').tab('show');
 	var request = $.ajax({
-		//http://localhost/code/ajax_root_details.php
+		// http://localhost/code/ajax_root_details.php
 		url : "http://97.74.249.172/colomborider/code/ajax_root_details.php",
 		type : "GET",
 		data : {
@@ -258,7 +274,7 @@ function calculateRoute() {
 			$('#results').hide();
 			$('#bus-result').show();
 			var request = $.ajax({
-				//http://localhost/code/search.php
+				// http://localhost/code/search.php
 				url : "http://97.74.249.172/colomborider/code/search.php",
 				type : "POST",
 				data : {
@@ -572,5 +588,3 @@ $("#myTab ul li").live("click", function() {
 	$("." + newSelection).removeClass("ui-screen-hidden");
 	prevSelection = newSelection;
 });
-
-

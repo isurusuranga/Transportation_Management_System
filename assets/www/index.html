@@ -1,3 +1,8 @@
+<!-- 
+ @Auther: Isuru Wijesinghe
+ Email: isurusuranga.wijesinghe@gmail.com
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +28,7 @@
 	<!-- Initial Page -->
 	<div data-role="page" id="map_page" data-fullscreen="true">
 		<div data-role="header" data-theme="b" data-position="fixed">
-			<img border="0" src="images/bus.gif" alt="cmbRider"
+			<img border="0" src="image_icons_gps/bus.gif" alt="cmbRider"
 				style="float: left; display: inline" />
 			<h1>Transportation</h1>
 		</div>
@@ -37,7 +42,8 @@
 					<!-- Search Tab -->
 					<li><a href="#popupLogin" data-rel="popup"
 						data-position-to="window" data-role="button" data-inline="true"
-						data-icon="search" data-theme="b" data-transition="pop">Search</a></li>
+						data-icon="search" data-theme="b" data-transition="pop"
+						id="searchRoute">Search</a></li>
 
 					<!-- Home Tab -->
 					<li><a href="#" id="home" data-icon="home" data-role="button"
@@ -88,7 +94,7 @@
 				<form>
 					<div style="padding: 10px 20px;">
 						<label for="gmap_type" class="select">Type:</label> <select
-							name="select-choice-0" id="gmap_type">
+							name="select-choice-0" id="gmap_type" data-native-menu="false">
 							<option value="art_gallery">art gallery</option>
 							<option value="atm">atm</option>
 							<option value="bank">banks</option>
@@ -101,7 +107,7 @@
 							<option value="school">schools</option>
 							<option value="university">universities</option>
 						</select> <label for="gmap_radius" class="select">Radius: </label> <select
-							name="select-choice-0" id="gmap_radius">
+							name="select-choice-0" id="gmap_radius" data-native-menu="false">
 							<option value="500">500</option>
 							<option value="1000">1000</option>
 							<option value="1500">1500</option>
